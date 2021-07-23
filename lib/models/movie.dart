@@ -33,6 +33,8 @@ class Movie {
   double voteAverage;
   int voteCount;
 
+  String? heroId;
+
   factory Movie.fromJson(String str) => Movie.fromMap(json.decode(str));
 
   factory Movie.fromMap(Map<String, dynamic> json) => Movie(
@@ -72,6 +74,12 @@ class Movie {
   get fullPosterImg {
     return this.posterPath != null
         ? 'https://image.tmdb.org/t/p/w500${this.posterPath}'
+        : 'https://i.stack.imgur.com/GNhxO.png';
+  }
+
+  get fullBackdropPathImg {
+    return this.backdropPath != null
+        ? 'https://image.tmdb.org/t/p/w500${this.backdropPath}'
         : 'https://i.stack.imgur.com/GNhxO.png';
   }
 }
